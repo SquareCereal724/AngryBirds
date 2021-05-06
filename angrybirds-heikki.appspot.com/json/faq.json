@@ -1,0 +1,33 @@
+{
+"faq": 
+	[ 
+		{
+			"title": "What are the minimum system requirements?", 
+			"content": "The game requires Flash 11 to run.<br />Flash 11 has its own requirements.<br />Windows:<br /><span class='faqTabSpan'>2.33GHz or faster x86-compatible processor, or Intel® Atom™ 1.6GHz or faster processor for netbooks <br />Microsoft® Windows® XP (32-bit), Windows Server® 2003 (32-bit), Windows Server 2008 (32-bit), Windows Vista® (32-bit), Windows 7 (32-bit and 64-bit)<br />Internet Explorer 7.0 and above, Mozilla Firefox 4.0 and above, Google Chrome, Safari 5.0 and above, Opera 11<br />1GB of RAM; 128MB of graphics memory<br /></span>Mac OS:<br /><span class='faqTabSpan'>Intel Core™ Duo 1.33GHz or faster processor<br />Mac OS X v10.6 or v10.7<br />Safari 5.0 and above, Mozilla Firefox 4.0 and above, Google Chrome, Opera 11<br />1GB of RAM; 128MB of graphics memory<br /></span>Linux:<br /><span class='faqTabSpan'>2.33GHz or faster x86-compatible processor, or Intel Atom 1.6GHz or faster processor for netbooks<br />Red Hat® Enterprise Linux (RHEL) 5.6 or later (32-bit and 64-bit), openSUSE® 11.3 or later (32-bit and 64-bit), Ubuntu 10.04 or later (32-bit and 64-bit)<br />Mozilla Firefox 4.0 or Google Chrome<br />1GB of RAM; 128MB of graphics memory<br />"
+		}, 
+		{
+			"title": "Why do I have problems with the game on Internet Explorer 8 or earlier?", 
+			"content": "Please note that the game has known issues on Internet Explorer 8 and earlier browsers on certain systems. If you experience problems running the game and have Internet Explorer 8 or earlier, please consider using another browser for now. We are currently working on getting this issue resolved."
+		}, 
+		{
+			"title": "What is the Heikki Power?", 
+			"content": "Heikki Power is a power-up that you can use to maximize your score or help you get through the level. You need a special code for using the Heikki Power which can be found from Heikki's official Facebook fan page. There is a link in the top right corner of the game. The special power-up can be used once per level; once activated, it can be used in all of the levels. It will stay activated until a new level is unlocked, and then a new code will be needed to reactivate it."
+		}, 
+		{
+			"title": "What is the Overall leaderboard?", 
+			"content": "This leaderboard displays the level scores combined from each level. It shows the top 50 players."
+		}, 
+		{
+			"title": "Can I win something?", 
+			"content": "In this game there are no prizes for the players."
+		}, 
+		{
+			"title": "I have forgotten my password, how can I retrieve it?", 
+			"content": "There is a link for resetting for your password on the login screen."
+		}, 
+		{
+			"title": "How long can I keep playing the game?", 
+			"content": "The game will be available until the end of 2012"
+		} 
+	]
+}

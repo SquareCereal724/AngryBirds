@@ -1,0 +1,273 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">    
+    <head>    			    
+        
+
+
+        <title>Angry Birds Heikki</title>        		
+		<meta property="og:title" content="Angry Birds Heikki" />
+		<meta property="og:description" content="Where's Heikki's F1 racing helmet gone?! The Angry Birds have a hunch!" />
+		<meta property="og:image" content="/images/share_icon_heikki.png"/>
+		<meta property="og:url" content="http://heikki.angrybirds.com/" />
+		
+		<!-- G+ sharing -->
+		<div itemscope itemtype="http://schema.org/Product">
+		  <meta itemprop="name" content="Angry Birds Heikki" />
+		  <meta itemprop="image" content="/images/share_icon_heikki.png" />
+		  <meta itemprop="description" content="Where's Heikki's F1 racing helmet gone?! The Angry Birds have a hunch!" />
+		  <meta itemprop="url" content="http://heikki.angrybirds.com/" />
+		</div>
+		 
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Cache-Control" content="Public"/>
+        <meta http-equiv="X-Frame-Options" content="deny">        
+        <meta http-equiv="Expires" content="Mon, 31 Dec 2012 12:00:00 GMT"/>
+           
+        <!-- Fancybox -->        
+		<link rel="stylesheet" type="text/css" href="../ext/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+        <!-- CSS for Common-->
+        <link href="css/common.min.css?version=1-0-10-0.362328590251688694" type="text/css" rel="stylesheet"/>        
+        <!-- CSS for Layout -->
+        <link href="css/fluid_grid.min.css" type="text/css" rel="stylesheet"/>
+        
+		
+        <style type="text/css" media="screen"> 
+            
+            object:focus { outline:none; }
+            #flashContent { display:none; }
+            
+        </style>
+        
+        <script type="text/javascript" src="js/jquery-1.7.min.js?version=1-0-10-0.362328590251688694"> </script>                 
+		<script type="text/javascript" src="js/ga.tracking.min.js?version=1-0-10-0.362328590251688694"></script>
+					
+	    <!-- Box-Shadowing for IE6-9 -->
+	    <script type="text/javascript" src="js/pie.min.js?version=1-0-10-0.362328590251688694"> </script>		               
+	    		 
+        <script type="text/javascript" src="flash/swfobject.js?version=1-0-10-0.362328590251688694"> </script>
+        
+        <!-- Fancybox -->
+        <script type="text/javascript" src="../ext/fancybox/jquery.easing-1.3.pack.js?version=1-0-10-0.362328590251688694"></script>
+		<script type="text/javascript" src="../ext/fancybox/jquery.mousewheel-3.0.4.pack.js?version=1-0-10-0.362328590251688694"></script>
+		<script type="text/javascript" src="../ext/fancybox/jquery.fancybox-1.3.4.js?version=1-0-10-0.362328590251688694"></script>   
+		<script type="text/javascript" src="js/common.min.js?version=1-0-10-0.362328590251688694"></script>
+        <script type="text/javascript" >
+			/*
+				Block the page from being loaded in an iFrame
+			*/
+	        if (self != top) {
+	        	top.location = self.location;
+	        }
+			
+			/*
+				When the document has loaded
+			*/
+		    $(document).ready(function(e) {		    	
+		    	if (playerVersion.major < 11) {		    		
+		        	$('#flashContent').show();     
+		        	trackEvent10Percent('flash', 'prompt-install');
+		        }
+		        if (IsPhone()) {
+		        	$('#flashContent').show();
+		        	$('#flashContent').html('<div class=\'center error-text\'>Not working on mobile.</div>')
+		        	trackEvent10Percent('browser', 'mobile-not-supported');
+		        }
+		        if (!isIEVersionSupported()) {
+		        	$('#flashContent').show();
+		        	$('#flashContent').html('<div class=\'center error-text\'>The browser you are using is outdated. Please update your browser.</div>')
+		        	trackEvent10Percent('browser', 'ie-6-7-not-supported');
+		        }
+		        
+     			/* Disable scrolling when mouse over game div */
+		    	$('#flashObject').hover(function() {
+
+		    		if (isFF()) {
+					    
+				    	document.onmousewheel = function(){ stopWheel(); } /* IE7, IE8 */
+				    	if(document.addEventListener){ /* Chrome, Safari, Firefox */
+				    	    document.addEventListener('DOMMouseScroll', stopWheel, false);
+				    	}
+				    } else {		    	    
+			    	    $(document).bind('mousewheel DOMMouseScroll scroll',function(){ 
+		    	        	stopWheel();
+			    	        
+			    	    });			    	   
+		    	    }
+		    	    
+		    	}, function() {
+					if (isFF()) {
+					    				    	
+				    	if(document.removeEventListener){ /* Chrome, Safari, Firefox */
+				    	    document.removeEventListener('DOMMouseScroll', stopWheel, false);
+				    	}
+				    } else {
+ 			    		$(document).unbind('mousewheel DOMMouseScroll scroll'); 			    		
+ 			    	}
+		    	    
+		    	});
+			});		
+		    
+	    </script>  
+        <script type="text/javascript">
+        var playerVersion = swfobject.getFlashPlayerVersion();
+		      
+		var rndValue = 0;       
+        //If IE, create a random value so flash movie is refreshed when refreshing page. -->
+        
+        if (isIE()) {        
+        	rndValue = Math.random();
+        }
+		
+        if (playerVersion.major > 10 && !IsPhone() && isIEVersionSupported()) {
+        	trackEvent10Percent('flash', 'embed');
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "11.0.0";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "flash/playerProductInstall.swf";
+                        
+            var flashvars = {assetsUrl: "/flash/", buildNumber:"1-0-10-0.362328590251688694",domain:"https://1-0-10-0-dot-angrybirds-heikki.appspot.com"};           	  
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            params.wmode = "direct";
+            var attributes = {};
+            attributes.id = "AngryBirdsFP11";
+            attributes.name = "AngryBirdsFP11";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "flash/AngryBirdsHeikki.swf?version=1-0-10-0.362328590251688694&refresh=" + rndValue, "flashContent",
+                "980", "570", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+
+        }
+        </script>
+        <script type="text/javascript" src="js/swfwheel.js"></script>                  
+    </head>
+    <body>    	    	
+    	<!-- Use the fluid grid for cross browser compatibility -->    	
+        <div id="page" class="container container_12">	<!-- Page start -->
+				<div id="header">
+                    <div id="logo" class="left"> </div>
+                    
+                    <div id="top-banner" class="left">
+                    	
+
+<!--IFRAME Tag // Tag for network 1220: Rovio // Website: Heikki Web Page // Page: Main Page // Placement: Heikki_Top banner 320 x 60 px (3904356) // created at: Jun 19, 2012 10:15:26 AM   -->
+<IFRAME id="top_banner_iframe" WIDTH="320" HEIGHT="60" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://adserver.adtech.de/adiframe/3.0/1220/3904356/0/1983/ADTECH;target=_blank;grp=[group]"><script language="javascript" src="http://adserver.adtech.de/addyn/3.0/1220/3904356/0/1983/ADTECH;loc=700;target=_blank;grp=[group]"></script><noscript><a href="http://adserver.adtech.de/adlink/3.0/1220/3904356/0/1983/ADTECH;loc=300;grp=[group]" target="_blank"><img src="http://adserver.adtech.de/adserv/3.0/1220/3904356/0/1983/ADTECH;loc=300;grp=[group]" border="0" width="320" height="60"></a></noscript></IFRAME>
+<!-- End of IFRAME Tag -->
+                    </div>
+                        
+             	 	<div id="sharing-links" class="left">
+						<div id="share-image"></div>						
+						<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fheikki.angrybirds.com&t=Where%27s Heikki%27s F1 racing helmet gone?! The Angry Birds have a hunch!"  target="_blank"  onclick="trackEvent('sharing','fb');" class="share-fb left"></a>
+						<a href="https://twitter.com/share?text=Where%27s%20%40H_Kovalainen%27s+racing+helmet+gone?+The+%40AngryBirds+have+a+hunch!+%23F1+%23RacingPiggies" onclick="trackEvent('sharing','tw');" target="_blank" class="share-tw left" data-count="none"></a>					
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						
+						<a class="share-gplus left" target="_blank"
+							href="https://plusone.google.com/share?url=http%3A%2F%2Fheikki.angrybirds.com" onclick="trackEvent('sharing','gplus');"></a>					
+					</div>
+               		
+	            </div>
+	
+				<div class="clear"> </div>				
+        		
+        		<!-- The content centered in the middle of the page -->
+        		<div id="middle-content">
+        		   <div id="left-banner" class="left">
+			         
+
+<!--IFRAME Tag // Tag for network 1220: Rovio // Website: Heikki Web Page // Page: Main Page // Placement: Heikki_130 x 570 Left  (3904357) // created at: Jun 19, 2012 10:15:26 AM   -->
+<IFRAME id="left_banner_iframe" WIDTH="130" HEIGHT="570" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://adserver.adtech.de/adiframe/3.0/1220/3904357/0/5180/ADTECH;target=_blank"><script language="javascript" src="http://adserver.adtech.de/addyn/3.0/1220/3904357/0/5180/ADTECH;loc=700;target=_blank"></script><noscript><a href="http://adserver.adtech.de/adlink/3.0/1220/3904357/0/5180/ADTECH;loc=300" target="_blank"><img src="http://adserver.adtech.de/adserv/3.0/1220/3904357/0/5180/ADTECH;loc=300" border="0" width="130" height="570"></a></noscript></IFRAME>
+<!-- End of IFRAME Tag -->
+				   </div>
+				   
+				   
+<!-- Flash Wrapper -->
+<div id="flashObject" class="left">
+	<!-- Flash content-->	
+	<div id="flashContent">
+		<!-- Flash start -->		
+		<div id="install-flash-div" class="error-text">
+			To view this page ensure that Adobe Flash Player version 11.0.0 or greater is installed. <br /> 
+			<a href="http://get.adobe.com/flashplayer/" target="_blank">http://get.adobe.com/flashplayer/</a>
+		</div>		
+	</div>
+	<!-- Flash End -->
+	<noscript>
+	<div id="install-flash-div" class="error-text">
+			To view this page ensure that Javascript in enabled in your browser.
+	</div>
+</noscript>
+</div>
+<!-- Wrapper End -->
+
+
+				   	
+				   <div id="right-banner" class="left">
+				        
+
+<!--IFRAME Tag // Tag for network 1220: Rovio // Website: Heikki Web Page // Page: Main Page // Placement: Heikki_130 x 570 Right (3904358) // created at: Jun 19, 2012 10:15:26 AM   -->
+<IFRAME id="right_banner_iframe" WIDTH="130" HEIGHT="570" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://adserver.adtech.de/adiframe/3.0/1220/3904358/0/5180/ADTECH;target=_blank;grp=[group]"><script language="javascript" src="http://adserver.adtech.de/addyn/3.0/1220/3904358/0/5180/ADTECH;loc=700;target=_blank;grp=[group]"></script><noscript><a href="http://adserver.adtech.de/adlink/3.0/1220/3904358/0/5180/ADTECH;loc=300;grp=[group]" target="_blank"><img src="http://adserver.adtech.de/adserv/3.0/1220/3904358/0/5180/ADTECH;loc=300;grp=[group]" border="0" width="130" height="570"></a></noscript></IFRAME>
+<!-- End of IFRAME Tag -->
+				   </div>
+        		</div>
+        		          
+				<!-- Footer -->
+				<div class="clear"> </div>
+				<div id="footer-game">
+					
+						<a class="left btn-faq" href="javascript:;" style="" onclick="displayFAQ();">
+	                    </a>                    
+				    	<a id="downloadGallery" onclick="trackEvent10Percent('content','download-wallpaper'); displayGallery();" href="javascript:;" class="left btn-wallpaper"></a>
+				    	<div id="upperRow">
+		                    <div id="heikki-image" class="left "> </div>
+		                    <div id="footer-links" class="left">
+								<a href="http://www.heikkikovalainen.com/" target="_blank">heikkikovalainen.com</a> | <a href="https://www.facebook.com/Heikki.Kovalainen.Official.Fan.Page" target="_blank">facebook</a> | <a href="https://twitter.com/#!/h_kovalainen" target="_blank">twitter</a> | <a href="http://www.youtube.com/user/OfficialKovalainen" target="_blank">youtube</a>
+							</div>
+                   	 	</div>
+                    <a id="airAsiaLogo" href="https://chrome.airasia.com/#destination"  target="_blank"> </a>
+                    
+                    <a id="angryBirdsLink" class="left" href="http://www.rovio.com/en/our-work/games/view/1/angry-birds"  target="_blank"> </a>
+                    <a id="angryBirdsSeasonsLink" class="left" href="http://www.rovio.com/en/our-work/games/view/4/angry-birds-seasons"  target="_blank"> </a>
+                    <a id="angryRioSeasonsLink" class="left" href="http://www.rovio.com/en/our-work/games/view/6/angry-birds-rio"  target="_blank"> </a>
+                    <a id="angryFriendsSeasonsLink" class="left" href="http://apps.facebook.com/angrybirds/"  target="_blank"> </a>
+                    <a id="amazingAlexLink" class="left" href="http://www.amazingalex.com/" target="_blank"> </a>
+			    	<script>
+			    	function hideFlash(){
+		    			$('embed, object, iframe').css('visibility', 'hidden');
+		    		}
+		    		function showFlash(){
+		    			$('embed, object, iframe').css({ 'visibility' : 'visible' });
+		    		}
+			    	
+			    	</script>
+				</div> 
+                <div class="clear"> </div>
+				<!-- Legal info -->
+				  		    		
+			</div>	<!-- page end -->
+			
+<div id="page-footer" class="container">
+			
+    <div id="legaltext" class="left ">                
+    <span class="small-text"> 		
+		© 2012 Rovio Entertainment Ltd. Angry Birds. <a class="" href="http://www.rovio.com/eula/" target="_blank">EULA</a> <a class="" href="http://www.rovio.com/Privacy/" target="_blank">Privacy Policy</a> 		
+	</span>	
+	<span> 
+		 
+		
+	</span>
+	</div>  
+
+</div>				
+   </body>
+</html>

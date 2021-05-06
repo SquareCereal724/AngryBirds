@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>FAQ</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- common css styles -->
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />                    
+<script type="text/javascript" src="../js/common.min.js"></script>            
+<script type="text/javascript" src="../js/ga.tracking.min.js"></script>
+    
+<script type="text/javascript" src="../js/jquery-1.7.min.js"> </script>        
+
+<style type="text/css">
+body,html {
+	background: #fff;
+	overflow-x:hidden;
+	-ms-overflow-x: hidden;
+	-moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+}
+a {
+	font-size: 12px;
+	color: #013476;
+	text-decoration:none;
+	font-weight: bold;
+}
+a:link {
+	color: #013476;
+	text-decoration:underline;
+}
+
+a:hover {
+	color: #5FB3D8;
+	text-decoration:none;
+}
+a:active {
+	color: #5FB3D8;
+	text-decoration:none;
+}
+a:visited {
+	color: #013476;
+	text-decoration:none;
+}
+
+.faqTabSpan {
+	position: relative;
+	left: 50px;
+}
+
+</style>
+</head>
+<body>
+<div id="page">
+
+	<div id="faqBanner"></div>
+	<div class="content">
+		
+		<div id="faq-content">  </div>	
+		<p> </p>
+		<p> </p>    	
+		
+	</div>
+</div>
+    
+    <script type="text/javascript">    
+		function toggleFaq(obj) {
+			//$('.faqContent').hide();	
+			$(obj).children().slideToggle("fast");	
+				
+				
+		}
+		
+		/*
+		var client = new XMLHttpRequest();
+		client.open('GET', '/foo.txt');
+		client.onreadystatechange = function() {
+		  alert(client.responseText);
+		}
+		client.send();*/
+		/*
+		var jsonFaq = $.ajax({
+            url : "../json/faq.json",
+            dataType: "text",
+            success : function (data) {
+            	return data;
+            }
+        });
+		*/
+		
+		$.getJSON("../json/faq.json", function(json) {
+			var htmlContent = '';		
+			$.each(json.faq, function(i, item) {			
+				htmlContent += '<div class=\'faqTitle interactive\' onclick=\'toggleFaq(this);\'>' + eval(i+1) + '. '  + item.title
+							+ '<p id=\'\' style=\'display:none;\' class=\'faqContent interactive\'>'+ item.content + '</p>'
+							+ '</div>';
+							
+				$('#faq-content').html(htmlContent);
+			});
+		})
+		
+		.error(function() { alert("JSON error!"); })
+		
+		
+		
+		
+	</script>
+</body>
+</html>
