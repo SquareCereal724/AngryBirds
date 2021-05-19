@@ -1,0 +1,18 @@
+body.popup {
+	margin: 0;
+	font-family: sans-serif;
+	background: url(/gen/bg.png) repeat-x top #538f26;
+	color: #714929;
+}
+
+.box {
+	width: 90%;
+	border: 5px solid white;
+	margin: auto;
+	background: #ECE4D1;
+	padding: 15px;
+	padding-top: 0px;
+	margin-bottom: 30px;
+}
+
+.header_logos {margin: auto}
